@@ -1,15 +1,15 @@
 {
-  "start": "bash start.sh",
-  "install": {
-    "include": [
-      "^package\\.json$"
-    ]
-  },
+  "install": "npm install",
+  "start": "npm start",
   "watch": {
+    "install": {
+      "include": [
+        "^package\\.json$"
+      ]
+    },
     "restart": {
       "include": [
-        "^server\\.js$",
-        "^next\\.config\\.js$"
+        "^index\\.js$"
       ]
     }
   }

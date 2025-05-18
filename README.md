@@ -1,26 +1,29 @@
 # Global Voting Platform
 
-A simple, static demo of a location-based voting platform.
+A simplified static version of the location-based voting platform.
+
+## About
+
+This is a minimal version of the voting platform using plain HTML, CSS, and JavaScript with a simple Express server.
 
 ## How to Run
 
-This project is hosted on Glitch. The project automatically runs when you refresh the Glitch page.
+1. Install dependencies:
+   ```
+   npm install
+   ```
 
-If it doesn't start automatically, click the Terminal button and type:
-```
-refresh
-```
+2. Start the server:
+   ```
+   npm start
+   ```
 
-Then:
-```
-npm start
-```
+3. Open http://localhost:3000 in your browser
 
-## Project Structure
+## Structure
 
-- `index.html` - The main HTML file with the UI
+- `public/index.html` - The main HTML page with embedded styles and JavaScript
 - `index.js` - A simple Express server to serve the static files
-- `package.json` - Project dependencies and configuration
 
 ## Features
 
