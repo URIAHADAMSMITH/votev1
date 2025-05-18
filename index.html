@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Global Voting Platform</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    header {
+      background-color: #333;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    
+    main {
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .poll {
+      border: 1px solid #ddd;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+    }
+    
+    .poll-title {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    
+    .poll-description {
+      color: #666;
+      margin-bottom: 1rem;
+    }
+    
+    .poll-buttons {
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    button {
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+    
+    .yes-button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+    }
+    
+    .no-button {
+      background-color: #f44336;
+      color: white;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Global Voting Platform</h1>
+    <p>Vote on issues based on your location</p>
+  </header>
+  
+  <main>
+    <h2>Current Polls</h2>
+    <div id="polls-container">
+      <!-- Polls will be loaded here -->
+    </div>
+  </main>
+
+  <script>
+    // Sample poll data
+    const polls = [
+      {
+        id: 1,
+        title: 'Global Climate Action',
+        description: 'Should countries commit to net-zero emissions by 2050?'
+      },
+      {
+        id: 2,
+        title: 'US Healthcare Reform',
+        description: 'Do you support universal healthcare in the United States?'
+      },
+      {
+        id: 3,
+        title: 'EU Digital Policies',
+        description: 'Should the EU strengthen data privacy regulations?'
+      },
+      {
+        id: 4,
+        title: 'New York Transit Funding',
+        description: 'Should NYC increase funding for public transportation?'
+      }
+    ];
+
+    // Create HTML for polls
+    function renderPolls() {
+      const container = document.getElementById('polls-container');
+      
+      polls.forEach(poll => {
+        const pollElement = document.createElement('div');
+        pollElement.className = 'poll';
+        
+        pollElement.innerHTML = `
+          <div class="poll-title">${poll.title}</div>
+          <div class="poll-description">${poll.description}</div>
+          <div class="poll-buttons">
+            <button class="yes-button" onclick="vote(${poll.id}, 'yes')">Yes</button>
+            <button class="no-button" onclick="vote(${poll.id}, 'no')">No</button>
+          </div>
+        `;
+        
+        container.appendChild(pollElement);
+      });
+    }
+    
+    // Handle voting
+    function vote(pollId, choice) {
+      alert(`You voted ${choice} on poll #${pollId}`);
+    }
+    
+    // Initialize the page
+    document.addEventListener('DOMContentLoaded', () => {
+      renderPolls();
+    });
+  </script>
+</body>
+</html> 

@@ -1,18 +1,26 @@
 # Global Voting Platform
 
-A location-based voting platform that allows users to view and participate in polls based on geographical location. As users zoom in on the map, they see more localized polls specific to that region.
+A simple, static demo of a location-based voting platform.
 
-## Glitch Setup
+## How to Run
 
-This project is optimized to run on [Glitch](https://glitch.com):
+This project is hosted on Glitch. The project automatically runs when you refresh the Glitch page.
 
-1. Click "New Project" in Glitch
-2. Select "Import from GitHub"  
-3. Paste: `https://github.com/URIAHADAMSMITH/votev1`
-4. Wait for the project to build and start automatically
+If it doesn't start automatically, click the Terminal button and type:
+```
+refresh
+```
 
-If the project doesn't start automatically:
-- In the Glitch console, run: `bash start.sh`
+Then:
+```
+npm start
+```
+
+## Project Structure
+
+- `index.html` - The main HTML file with the UI
+- `index.js` - A simple Express server to serve the static files
+- `package.json` - Project dependencies and configuration
 
 ## Features
 
