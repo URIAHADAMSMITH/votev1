@@ -5,9 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js",
-    "lint": "next lint",
-    "glitch": "next build && NODE_ENV=production node server.js"
+    "start": "node server.js",
+    "glitch-start": "npm install && npm run build && npm run start"
   },
   "dependencies": {
     "next": "^14.0.4",
@@ -46,6 +45,6 @@
   },
   "homepage": "https://github.com/URIAHADAMSMITH/votev1#readme",
   "engines": {
-    "node": "18.x"
+    "node": "16.x"
   }
 }

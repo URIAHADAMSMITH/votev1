@@ -1,16 +1,9 @@
 {
-  "install": "npm install",
   "start": "bash start.sh",
   "watch": {
-    "throttle": 1000,
-    "install": {
-      "include": [
-        "^package\\.json$"
-      ]
-    },
     "restart": {
       "include": [
-        "^\\.env$",
+        "^server\\.js$",
         "^next\\.config\\.js$"
       ]
     }
