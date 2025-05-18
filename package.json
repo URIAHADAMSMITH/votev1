@@ -3,47 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "node server.js",
-    "glitch-start": "npm install && npm run build && npm run start"
+    "start": "node server.js"
   },
   "dependencies": {
-    "next": "^14.0.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "leaflet": "^1.9.4",
-    "react-leaflet": "^4.2.1",
-    "axios": "^1.6.2",
-    "zustand": "^4.4.7",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "leaflet": "^1.9.4"
   },
-  "devDependencies": {
-    "@types/node": "^20.10.4",
-    "@types/react": "^18.2.42",
-    "@types/react-dom": "^18.2.17",
-    "@types/leaflet": "^1.9.8",
-    "@types/express": "^4.17.21",
-    "typescript": "^5.3.3",
-    "eslint": "^8.55.0",
-    "eslint-config-next": "^14.0.4",
-    "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.32",
-    "tailwindcss": "^3.3.6"
-  },
-  "description": "A location-based voting platform that allows users to view and participate in polls based on geographical location. As users zoom in on the map, they see more localized polls specific to that region.",
-  "main": "server.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/URIAHADAMSMITH/votev1.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/URIAHADAMSMITH/votev1/issues"
-  },
-  "homepage": "https://github.com/URIAHADAMSMITH/votev1#readme",
   "engines": {
     "node": "16.x"
   }
