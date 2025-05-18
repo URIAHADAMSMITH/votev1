@@ -1,5 +1,10 @@
 {
   "start": "bash start.sh",
+  "install": {
+    "include": [
+      "^package\\.json$"
+    ]
+  },
   "watch": {
     "restart": {
       "include": [
