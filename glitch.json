@@ -1,6 +1,6 @@
 {
-  "install": "npm install",
-  "start": "npm start",
+  "install": "npm install --no-package-lock",
+  "start": "node server.js",
   "watch": {
     "install": {
       "include": [
@@ -9,7 +9,7 @@
     },
     "restart": {
       "include": [
-        "^index\\.js$"
+        "^server\\.js$"
       ]
     }
   }

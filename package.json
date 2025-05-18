@@ -2,11 +2,15 @@
   "name": "global-voting-platform",
   "version": "1.0.0",
   "description": "A location-based voting platform",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js",
+    "clean": "rm -rf node_modules package-lock.json"
   },
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "engines": {
+    "node": "14.x"
   }
 }

@@ -1,48 +1,66 @@
-const express = require('express');
-const path = require('path');
+// Simple Express server
+const http = require('http');
 const fs = require('fs');
+const path = require('path');
 
-const app = express();
-const port = process.env.PORT || 3000;
+// Create HTTP server
+const server = http.createServer((req, res) => {
+  // Serve static files
+  let filePath = '.' + req.url;
+  if (filePath === './') {
+    filePath = './public/index.html';
+  } else if (!filePath.includes('.')) {
+    filePath = './public/index.html';
+  } else {
+    filePath = './public' + req.url;
+  }
 
-// Create public directory
-if (!fs.existsSync('public')) {
-  fs.mkdirSync('public');
-}
+  // Get file extension
+  const extname = path.extname(filePath);
+  let contentType = 'text/html';
+  
+  switch (extname) {
+    case '.js':
+      contentType = 'text/javascript';
+      break;
+    case '.css':
+      contentType = 'text/css';
+      break;
+    case '.json':
+      contentType = 'application/json';
+      break;
+    case '.png':
+      contentType = 'image/png';
+      break;
+    case '.jpg':
+      contentType = 'image/jpg';
+      break;
+  }
 
-// Create a simple HTML file
-const html = `<!DOCTYPE html>
-<html>
-<head>
-  <title>Global Voting Platform</title>
-  <style>
-    body { 
-      font-family: Arial, sans-serif; 
-      text-align: center;
-      margin-top: 50px;
+  // Read file
+  fs.readFile(filePath, (err, content) => {
+    if (err) {
+      if (err.code == 'ENOENT') {
+        // Page not found
+        fs.readFile('./public/index.html', (err, content) => {
+          res.writeHead(200, { 'Content-Type': 'text/html' });
+          res.end(content, 'utf-8');
+        });
+      } else {
+        // Server error
+        res.writeHead(500);
+        res.end(`Server Error: ${err.code}`);
+      }
+    } else {
+      // Success
+      res.writeHead(200, { 'Content-Type': contentType });
+      res.end(content, 'utf-8');
     }
-    h1 { color: #333; }
-    p { color: #666; }
-  </style>
-</head>
-<body>
-  <h1>Global Voting Platform</h1>
-  <p>A location-based voting platform where users can vote on issues based on their location.</p>
-  <p>Basic version is now running successfully on Glitch!</p>
-</body>
-</html>`;
-
-fs.writeFileSync(path.join(__dirname, 'public', 'index.html'), html);
-
-// Serve static files
-app.use(express.static('public'));
-
-// Serve index.html for all routes
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  });
 });
 
 // Start server
-app.listen(port, () => {
+const port = process.env.PORT || 3000;
+server.listen(port, () => {
   console.log(`Server running on port ${port}`);
 }); 
