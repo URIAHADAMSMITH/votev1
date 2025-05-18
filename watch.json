@@ -1,0 +1,21 @@
+{
+  "install": {
+    "include": [
+      "^package\\.json$"
+    ],
+    "exclude": [],
+    "depth": 1
+  },
+  "restart": {
+    "include": [
+      "^\\.env$",
+      "^server\\.js$",
+      "^next\\.config\\.js$"
+    ],
+    "exclude": [
+      "^node_modules/",
+      "^\\.next/"
+    ]
+  },
+  "noSavedEvents": true
+} 
